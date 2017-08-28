@@ -26,7 +26,6 @@ SystemLog::addLog('-------------------------------------');
 SystemLog::addLog('Start process ....');
 
 
-
 $requestHandler = new RequestHandler($config);
 $apiAccessHandler = new ApiAccessManager($config);
 
