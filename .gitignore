@@ -1,2 +1,4 @@
-conf/config.inc.php
+conf/
 .idea/
+log/
+/composer.json
