@@ -1,0 +1,10 @@
+{
+  "name": "EtMDBTelegramBot",
+  "description": "EtMDB Telegram Bot",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "EtMDB\\TelegramBot\\": "lib"
+    }
+  }
+}
