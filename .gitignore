@@ -1,5 +1,2 @@
-conf/
+conf/config.inc.php
 .idea/
-log/
-/composer.json
-vendor/
