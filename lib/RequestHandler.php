@@ -104,7 +104,10 @@ class RequestHandler
             $PersonBirthPlace = $singleResult['birth_place'];
             $PersonHeight = $singleResult['height'];
             $PersonSpouse = $singleResult['spouse'];
+            $PersonBiography = $singleResult['biography'];
+            $personProfileImage = $singleResult['profile_image '];
             $PersonNickName = $singleResult['nickname'];
+            $personLink = "\r\n <a href='{$personProfileImage}' >-</a> <a href='https://etmdb.com'> {$PersonFirstName} {$PersonLastName}</a>";
 
             //Capitalize first letter
             $PersonGender[0] = strtoupper($PersonGender[0]);
@@ -122,7 +125,7 @@ class RequestHandler
                 $PersonEmail = '';
             }
 
-            $PersonSummaryInHTMLFormat ="🎭 \r\n<b>{$PersonFirstName} {$PersonLastName}</b> \r\nGender:$PersonGender \r\nHeight:{$PersonHeight}\r\nDate Of Birth: {$PersonBirthDate}\r\nBirth Place: {$PersonBirthPlace} \r\n\r\nEmail: ({$PersonEmail})\r\n\r\n";
+            $PersonSummaryInHTMLFormat = "🎭 \r\n<b>{$PersonFirstName} {$PersonLastName}({$PersonNickName})</b> \r\n {$PersonBiography}\r\nGender:$PersonGender\r\nDate Of Birth: {$PersonBirthDate}\r\nBirth Place: {$PersonBirthPlace}\r\n{$personLink}\r\n";
 
             $SingleResultTitle = $PersonFirstName . " " . $PersonLastName;
             $SingleResultDescription = strip_tags($PersonGender);
@@ -161,9 +164,9 @@ class RequestHandler
             $CinemaCloseTime = $singleResult['closes_at'];
             $CinemaPoster = $singleResult['cinema_poster_image'];
             $SomeVoodoo = "\r\n\r\n <a href='{$CinemaPoster}' >-</a> <a href='https://etmdb.com' >ETMDB</a>";
-            $CinemaSummaryInHTMLFormat ="<b>{$CinemaName}</b> \r\n📽️ <i>Open From: {$CinemaOpenTime}-{$CinemaCloseTime}</i>\r\n\r\n". strip_tags($CinemaDescription) . "\r\n\r\n
-			Established In: {$CinemaEstablishedDate}" 
-			. $SomeVoodoo;
+            $CinemaSummaryInHTMLFormat = "<b>{$CinemaName}</b> \r\n📽️ <i>Open From: {$CinemaOpenTime}-{$CinemaCloseTime}</i>\r\n\r\n" . strip_tags($CinemaDescription) . "\r\n\r\n
+			Established In: {$CinemaEstablishedDate}"
+                . $SomeVoodoo;
 
 
             $SingleResultTitle = $CinemaName;
@@ -323,10 +326,8 @@ class RequestHandler
         }
 
         $TGMessageReceivedResponse = file_get_contents($TGSendMessageURL);
-		
 
-		
-		
+
         return $TGMessageReceivedResponse;
     }
 }
